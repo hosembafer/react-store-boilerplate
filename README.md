@@ -1,2 +1,2 @@
-# react-store-boilerplate
-React Global State Management Boilerplate without any Redux/MobX like libraries
+# react-store
+React Global State Management without any Redux/MobX like libraries
