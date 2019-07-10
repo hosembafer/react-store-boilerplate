@@ -1,0 +1,36 @@
+.TodoList {
+    width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+
+    .TodoList__item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 10px 0;
+    }
+    
+    .TodoList__item__id {
+        width: 20px;
+    }
+    
+    .TodoList__item input {
+        display: flex;
+        flex: 1;
+        margin-left: 10px;
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+    
+    .TodoList__item__remover {
+        width: 45px;
+        margin-left: 10px;
+        font-size: 14px;
+        color: red;
+        cursor: pointer;
+        user-select: none;
+    }
+}

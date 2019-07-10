@@ -4,7 +4,7 @@ const Context = React.createContext();
 
 let nextId = 0;
 
-export const todoListProvider = ({children}) => {
+export const TodoListProvider = ({children}) => {
     const [tasks, setTasks] = useState([]);
 
     const addTask = useCallback(name => setTasks(tasks => ([...tasks, {id: ++nextId, name}])), [setTasks]);

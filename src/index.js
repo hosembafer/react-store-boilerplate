@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import createStoreProvider from 'store/createStoreProvider';
-import { todoListProvider } from 'store/todoListStore';
+import { TodoListProvider } from 'store/TodoListStore';
 
 
 const StoreProvider = createStoreProvider([
-    todoListProvider,
+    TodoListProvider,
 ]);
 
 // const SecondStoreProvider = createStoreProvider([
