@@ -1,8 +1,10 @@
 import React, { useRef, useEffect } from 'react';
+import usePrevious from 'hooks/usePrevious';
 
 import './TodoList.scss';
 
-import { useTodoListStore } from 'store/TodoListStore.js';
+import { useTodoListStore } from 'store/TodoListStore';
+import { useMessageStore } from 'store/MessageStore';
 
 const TodoList = () => {
 	const addInputRef = useRef();
@@ -15,9 +17,22 @@ const TodoList = () => {
 		removeTask,
 	} = useTodoListStore();
 
+	const {pushMessage} = useMessageStore();
+
+	const prevTasks = usePrevious(tasks);
+
 	useEffect(() => {
+		if (prevTasks) {
+			if (prevTasks.length < tasks.length) {
+				pushMessage({type: 'success', text: 'New task added successfully!'});
+			}
+			if (prevTasks.length > tasks.length) {
+				pushMessage({type: 'info', text: 'Task removed successfully!'});
+			}
+		}
+		
 		addInputRef.current.value = '';
-	}, [addInputRef, tasks.length]);
+	}, [addInputRef, tasks.length, pushMessage, prevTasks]);
 
 	return <div className={'TodoList'}>
 		<div className={'TodoList__item'}>

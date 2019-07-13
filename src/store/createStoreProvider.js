@@ -1,3 +1,3 @@
 import React from 'react';
 
-export default storeProviders => storeProviders.reduce((Provider, components) => <Provider>{components}</Provider>);
+export default providers => ({ children }) => providers.reduce((tree, Provider) => <Provider>{tree}</Provider>, children);
